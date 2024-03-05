@@ -6,6 +6,57 @@ PALETTE
   #2a7dc0
 */
 
+.only-mobile-section-divider-wrapper {
+  display: none;
+}
+
+.only-mobile-section-divider-wrapper .section-divider {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+
+
+  .service-page-cover-1-text-container .page-title-container .page-title {
+    margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .service-page-cover-1 {
+    min-height: 400px !important;
+  }
+
+  .homepage-cover-2 {
+    display: none !important;
+  }
+
+  .only-mobile-section-divider-wrapper {
+    display: flex;
+  }
+
+  .only-mobile-section-divider-wrapper .section-divider {
+    background: repeating-linear-gradient(45deg, #1C2744, #1C2744 1rem, #ffe300 1rem, #ffe300 2.5rem)!important;
+  }
+
+  .section-divider {
+    background: repeating-linear-gradient(45deg, #1C2744, #1C2744 1rem, #ffe300 1rem, #ffe300 2.5rem)!important;
+  }
+
+  .service-feature-button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .servizi-cover-2 {
+    min-height: 50vh !important;
+  }
+
+  .homepage-form-internal-column-left-section {
+    display: none !important;
+  }
+
+}
+
 /* 
   LOGO
 */
@@ -150,6 +201,7 @@ h3 {
 }
 
 @media screen and (max-width: 600px) {
+
   .services-page-list-container {
     transform: translateY(0px)
   }
@@ -300,22 +352,30 @@ area.customize-unpreviewable {
 @media screen and (max-width: 600px) {
 
   .servizi-image-absolute-on-cover-container {
-    display: none !important;
+    left: unset !important;
+    right: 1rem !important;
+    top: 210px !important;
+    transform: unset !important;
     overflow: hidden !important;
   }
 
   .servizi-image-absolute-on-cover-container img {
-    right: 0%;
-    transform: translatex(0%);
-    width: 75%;
+    width: 100%;
   }
 
   .servizi-intro-container .sponsors-container {
     overflow: hidden !important;
     box-sizing: border-box !important;
-    padding-left: 1rem !important;
     background: #00000030;
     box-shadow: 0px 0px 20px #00000030;
+  }
+
+  .servizi-intro-container .sponsors-container .img-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .servizi-intro-container .sponsors-container .img-container img {
@@ -373,6 +433,7 @@ area.customize-unpreviewable {
   letter-spacing: 0px;
   width: 100%;
   margin: 0;
+  padding: 0 1rem;
 }
 
 .servizi-intro-container .sponsors-container {
@@ -619,8 +680,22 @@ area.customize-unpreviewable {
 
 @media screen and (max-width: 600px) {
 
+  .servizi-cover-3 form input[type="submit"] {
+    width: 100%;
+  }
+
+  .servizi-cover-buttons-group-container .servizio-title {
+    margin: 0;
+  }
+
+  #services-big-rows .text-container .description-list-container ul {
+    column-count: 1 !important;
+  }
+
   .servizi-cover-3 form {
     margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
   }
 
 }
@@ -845,6 +920,10 @@ area.customize-unpreviewable {
 
 @media screen and (max-width: 600px) {
 
+  #services-big-rows .service-feature-content {
+    justify-content: center !important;
+  }
+
   #services-big-rows #servizio-civile {
     background: #1c2744
   }
@@ -916,6 +995,10 @@ area.customize-unpreviewable {
 
   #services-big-rows .service-feature-container {
     height: 100% !important;
+  }
+
+  #services-big-rows .service-feature-content .text-container .description-list-container {
+    padding: 0 1rem;
   }
 
   #services-big-rows .service-feature-content .text-container .description-list-container ul {
@@ -1227,10 +1310,14 @@ area.customize-unpreviewable {
 
 @media screen and (max-width: 600px) {
 
+  .text-block-container-2 p.intro-section-container-paragraph {
+    padding-bottom: 0rem !important;
+  }
+
   #intro-section-container.intro-section-container {
-    margin-top: 1rem;
+    margin-top: 2rem;
     transform: unset;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   #intro-section-container.intro-section-container .logo-container {
@@ -1258,12 +1345,13 @@ area.customize-unpreviewable {
     padding: 1rem;
     font-size: 1rem !important;
     line-height: 1.2rem !important;
-    gap: .4rem;
+    gap: 2rem;
   }
 
   #intro-section-container .text-block-container-3 {
     font-size: 1rem !important;
     line-height: 1.2rem !important;
+    padding: 2rem;
   }
 
 }
@@ -1302,7 +1390,7 @@ area.customize-unpreviewable {
 .text-block-container-2 p.intro-section-container-paragraph {
   word-break: break-all;
   hyphens: auto;
-  padding: 0rem 0rem 1rem 0rem !important;
+  padding: 0rem 0rem 1rem 0rem;
   line-height: 1.2rem;
 }
 
@@ -1814,13 +1902,13 @@ Gallery
 }
 
 @media (max-width: 600px) {
-	
-	.lavori-eseguiti-gallery .preview-container {
-	width: 100%;
-		display: flex!important;
-		justify-content: center!important;
-}
-	
+
+  .lavori-eseguiti-gallery .preview-container {
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
   .lavori-eseguiti-gallery .gallery-grid-container {
     grid-template-columns: 1fr;
   }
@@ -1875,23 +1963,30 @@ Gallery
 @media (max-width: 600px) {
 
   .service-absolute-bottom-cover-image-container {
-    display: none;
+    height: 200px !important;
   }
 
   .civile-absolute-bottom-cover-image {
-    display: none;
+    max-height: 200px !important;
+    object-fit: contain;
   }
 
   .stradale-absolute-bottom-cover-image {
-    display: none;
+
+    max-height: 200px !important;
+    object-fit: contain;
   }
 
   .ambientale-absolute-bottom-cover-image {
-    display: none;
+
+    max-height: 300px !important;
+    object-fit: contain;
   }
 
   .cave-absolute-bottom-cover-image {
-    display: none;
+    bottom: 0;
+    max-height: 300px !important;
+    object-fit: contain;
   }
 
 }
