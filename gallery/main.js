@@ -1,3 +1,4 @@
+const ITEMS_PER_LOAD = 9;
 const array = [
   // Images
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-1.jpg",
@@ -5,61 +6,72 @@ const array = [
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-3-1.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-4.jpeg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-5-1.jpg",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-1.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-2.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-3.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-4.mp4",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-6.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-7.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-8-1.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-9.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-10.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-11.jpg",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-5.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-6.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-7.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-8.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-9.mp4",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-12.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-13.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-14.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-15.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-16-1.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-17.jpg",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-10.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-11.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-12.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-13.mp4",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-18.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-19.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-20.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-21.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-22.jpg",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-23.png",
-  // Videos
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-1.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-2.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-3.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-4.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-5.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-6.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-7.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-8.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-9.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-10.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-11.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-12.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-13.mp4",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-14.mp4",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-15.mp4",
   "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-16.mp4",
-  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-17.mp4",
+  "http://www.gruppodallamora.it/wp-content/uploads/2024/03/lavori-17.mp4"
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (!document.body.classList.contains("page-id-235")) {
+  if (!document.body.classList.contains('page-id-235')) {
     return;
   }
   const galleryGridContainer = document.querySelector(".gallery-grid-container");
   const previewContainer = document.querySelector(".preview-container");
   const previewContent = document.querySelector(".preview-content");
   const backdrop = document.querySelector(".backdrop");
+  
+  // Add the Load More button
+  const loadMoreBtn = document.createElement("button");
+  const loadMoreBtnContainer = document.createElement("div");
+  loadMoreBtn.innerText = "Load More";
+  loadMoreBtn.className = "load-more-btn";
+  loadMoreBtnContainer.className = "load-more-btn-container";
+  loadMoreBtnContainer.appendChild(loadMoreBtn);
+  galleryGridContainer.insertAdjacentElement('afterend', loadMoreBtnContainer);
 
-  array.forEach((url) => {
-    const imgBox = document.createElement("div");
-    imgBox.classList.add("img-box");
+  let currentIndex = 0;
 
-    // Check if the URL is for a video or an image
-    if (url.endsWith(".mp4")) {
-      // Generate thumbnail on the fly
-      generateThumbnail(url)
+  function loadMedia() {
+    const maxIndex = currentIndex + ITEMS_PER_LOAD;
+    for (let i = currentIndex; i < maxIndex && i < array.length; i++) {
+      const url = array[i];
+      const imgBox = document.createElement("div");
+      imgBox.classList.add("img-box");
+
+      if (url.endsWith(".mp4")) {
+        generateThumbnail(url)
         .then((thumbnailUrl) => {
           imgBox.style.backgroundImage = `url(${thumbnailUrl})`; // Set generated thumbnail
         })
@@ -74,16 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.innerHTML =
         '<img height="50" src="http://www.gruppodallamora.it/wp-content/uploads/2024/03/play_14441317.png" alt="Play Video" />';
       imgBox.appendChild(overlay);
-    } else {
-      imgBox.style.backgroundImage = `url(${url})`; // Set image
-    }
+      } else {
+        imgBox.style.backgroundImage = `url(${url})`; // Set image
+      }
 
-    imgBox.style.backgroundSize = "cover";
-    imgBox.style.backgroundPosition = "center";
-    galleryGridContainer.appendChild(imgBox);
+      imgBox.style.backgroundSize = "cover";
+      imgBox.style.backgroundPosition = "center";
+      galleryGridContainer.appendChild(imgBox);
 
-    imgBox.addEventListener("click", function () {
-      // Check if the URL is for an MP4 or MOV video
+      imgBox.addEventListener("click", function () {
+        // Check if the URL is for an MP4 or MOV video
       if (url.endsWith(".mp4") || url.endsWith(".mov")) {
         // Assuming modern browsers that can play .mov files with 'video/mp4' MIME type
         // If precise MIME type is needed, add a condition to switch between 'video/mp4' and 'video/quicktime'
@@ -95,17 +107,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       previewContainer.style.display = "block";
       backdrop.style.display = "block";
-    });
-  });
+      });
+    }
+    currentIndex = maxIndex; // Update currentIndex for the next load
+    if (currentIndex >= array.length) {
+      loadMoreBtn.style.display = "none"; // Hide Load More button if all items are loaded
+    }
+  }
 
-  // Close preview when clicking backdrop
+  loadMedia(); // Initially load the first set of media items
+
+  loadMoreBtn.addEventListener("click", loadMedia);
+
   backdrop.addEventListener("click", function () {
     previewContainer.style.display = "none";
     backdrop.style.display = "none";
     previewContent.innerHTML = ""; // Clear content
   });
 
-  // Function to generate thumbnail from video
   function generateThumbnail(videoUrl) {
     return new Promise((resolve, reject) => {
       const video = document.createElement("video");
